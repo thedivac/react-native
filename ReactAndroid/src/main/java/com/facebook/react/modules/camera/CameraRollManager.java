@@ -363,7 +363,7 @@ public class CameraRollManager extends ReactContextBaseJavaModule {
       WritableMap node = new WritableNativeMap();
       boolean imageInfoSuccess =
           putImageInfo(resolver, photos, node, idIndex, widthIndex, heightIndex);
-      if (imageInfoSuccess) {
+      if (imageInfoSuccess || photos.getString(mediaTypeIndex).equals(Integer.toString(MediaStore.Files.FileColumns.MEDIA_TYPE_VIDEO))) {
         putBasicNodeInfo(photos, node, mimeTypeIndex, groupNameIndex, dateTakenIndex);
         putLocationInfo(photos, node, longitudeIndex, latitudeIndex);
 
